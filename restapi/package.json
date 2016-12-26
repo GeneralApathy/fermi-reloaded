@@ -1,0 +1,18 @@
+{
+  "name": "fermi-restapi",
+  "version": "1.0.0",
+  "description": "RestAPI that fetches all the needed data from fermi.mo.it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Emiliano Maccaferri",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cheerio": "^0.22.0",
+    "express": "^4.14.0",
+    "mysql": "^2.12.0",
+    "request": "^2.79.0"
+  }
+}
