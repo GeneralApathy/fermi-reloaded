@@ -1,5 +1,9 @@
 # Configs
-*.json
+fermi-bot/config.json
+restapi/config.json
+
+# Stuff
+fermi-bot/data/*
 
 # Logs
 logs
