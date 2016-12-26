@@ -1,0 +1,26 @@
+{
+  "name": "3f-bot",
+  "version": "1.0.0",
+  "description": "Simple Telegram bot for my class group",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeneralApathy/3f-bot.git"
+  },
+  "author": "Emiliano Maccaferri",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/GeneralApathy/3f-bot/issues"
+  },
+  "homepage": "https://github.com/GeneralApathy/3f-bot#readme",
+  "dependencies": {
+    "aes256": "^1.0.2",
+    "bcrypt-nodejs": "0.0.3",
+    "cheerio": "^0.22.0",
+    "nodeogram": "0.0.7",
+    "request": "^2.79.0"
+  }
+}
