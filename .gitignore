@@ -3,7 +3,7 @@ bot/config.json
 restapi/config.json
 
 # Stuff
-fermi-bot/data/*
+bot/data/*
 
 # Logs
 logs
