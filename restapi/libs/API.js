@@ -3,8 +3,9 @@ const body = require("body-parser");
 const MySQL = require("./MySQL");
 const app = express();
 const web = require("./WebInterface");
+const fs = require("fs");
 
-var config = fs.readFileSync('config.json');
+var config = JSON.parse(fs.readFileSync('config.json'));
 
 var mysql = new MySQL(config.db, config.user, config.password);
 var date = new Date();
@@ -17,6 +18,12 @@ app.use(body.urlencoded({
 
 }));
 app.use(body.json());
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 var API = function(){
 
@@ -42,6 +49,12 @@ API.prototype.init = function(){
         var password = req.body.password;
         var username = req.body.username;
         var key = req.body.key;
+
+        if(!username && !password){
+
+            return res.json({'error': 'Missing username/password'});
+
+        }
 
         console.log("[" + date + "] /login request from " + username);
 
@@ -86,6 +99,12 @@ API.prototype.init = function(){
         var username = req.body.username;
         var key = req.body.key;
 
+        if(!username && !password){
+
+            return res.json({'error': 'Missing username/password'});
+
+        }
+
         console.log("[" + date + "] /grades request from " + username);
 
         mysql.getAPIKey(key, function(err, row){
@@ -129,6 +148,12 @@ API.prototype.init = function(){
         var password = req.body.password;
         var username = req.body.username;
         var key = req.body.key;
+
+        if(!username && !password){
+
+            return res.json({'error': 'Missing username/password'});
+
+        }
 
         console.log("[" + date + "] /tests request from " + username);
 

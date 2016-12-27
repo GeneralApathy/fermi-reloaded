@@ -70,7 +70,9 @@ module.exports.getGrades = function(username, password, callback){
 
                         grade = $(grade);
                         var subject = grade.prev().text();
-                        grades.push({'grade': grade.text(), 'subject': subject});
+                        var date = grade.next().text();
+                        var type = grade.next().next().text();
+                        grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
 
                     });
 
@@ -78,7 +80,9 @@ module.exports.getGrades = function(username, password, callback){
 
                         grade = $(grade);
                         var subject = grade.prev().text();
-                        grades.push({'grade': grade.text(), 'subject': subject});
+                        var date = grade.next().text();
+                        var type = grade.next().next().text();
+                        grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
 
                     });
 
@@ -86,7 +90,9 @@ module.exports.getGrades = function(username, password, callback){
 
                         grade = $(grade);
                         var subject = grade.prev().text();
-                        grades.push({'grade': grade.text(), 'subject': subject});
+                        var date = grade.next().text();
+                        var type = grade.next().next().text();
+                        grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
 
                     });
 
