@@ -1,0 +1,23 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeneralApathy/fermi-reloaded.git"
+  },
+  "author": "Emiliano Maccaferri",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/GeneralApathy/fermi-reloaded/issues"
+  },
+  "homepage": "https://github.com/GeneralApathy/fermi-reloaded#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "twig": "^0.10.3"
+  }
+}
