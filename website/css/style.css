@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
+
+body{
+
+    font-family: 'Roboto', sans-serif;
+    background: url(https://cdn.emilianomaccaferri.com/registro/bg.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+
+}
+
+::-moz-selection { background: #222 }
+::-webkit-selection { background: #222 }
+::selection { background: #222 }
+
+.main{
+
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: table;
+    background: rgba(0,0,0,0.9);
+
+}
+
+.main .content{
+
+    display: table-cell;
+    position: relative;
+    vertical-align: middle;
+    color: white;
+    padding: 100px;
+
+}
+
+.main .content .big{
+
+    background: #111;
+    box-shadow: 2px 2px 2px 1px black;
+    padding: 10px;
+    display: table;
+    font-weight: 100;
+    font-size: 7vw;
+
+}
+
+.main .content .small{
+
+    background: #222;
+    box-shadow: 2px 2px 2px 1px black;
+    padding: 10px;
+    display: table;
+    font-weight: 100;
+    font-size: 2vw;
+
+}
+
+.main .content .status{
+
+    float: right;
+    padding: 10px;
+    box-shadow: 2px 2px 2px 0px black;
+    width: 20%;
+    background: #222;
+
+}
+
+.main .content .status h1{
+
+    font-size: 1.4em;
+    font-weight: lighter;
+    text-align: center;
+    border-bottom: 2px solid #222;
+
+}
+
+.main .content .status ul{
+
+    padding: 0;
+    list-style-type: none;
+    box-shadow: 0px 1px 4px 0px black inset;
+
+}
+
+.main .content .status ul li{
+
+    padding: 10px;
+    text-align: center;
+
+}

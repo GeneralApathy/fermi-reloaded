@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <link rel="stylesheet" href="/static/css/style.css" />
+            <title>Fermi-Reloaded &bull; {{title}}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta charset="utf-8">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        {% endblock %}
+    </head>
+    <body>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

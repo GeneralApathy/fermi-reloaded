@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
 var API = function(){
 
     this.date = new Date();
-    app.listen(24500);
+    app.listen(24500, "127.0.0.1");
     console.log("App listening on 24500");
 
 }
@@ -43,6 +43,14 @@ API.prototype.init = function(){
         res.json({methods: ["grades", "tests"]});
 
     })
+
+    app.get('/appVersion', function(req, res){
+
+        var version = '1.0.0';
+        var mobileVersion = '1.0.0'
+        res.json({'version': mobileVersion, 'rest': version});
+
+    });
 
     app.post('/login', function(req, res){
 

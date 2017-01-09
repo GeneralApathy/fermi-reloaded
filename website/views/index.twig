@@ -1,0 +1,65 @@
+{% extends "layout.twig" %}
+{% block head %}
+{{parent()}}
+
+<script>
+
+$(document).ready(function(){
+
+if($(document).width() < 700){
+
+$('body').css('background', 'url()');
+$('body').append("<h1>BALU BELLOOOOOO</h1>");
+$('.main').hide();
+alert("No, non è responsive, porcamadonna");
+
+}
+
+});
+
+    $.get(
+
+        "https://api.emilianomaccaferri.com/appversion",
+        function(res){
+
+                if(res){
+
+                    $("#restVersion").append(res.rest);
+                    $("#appVersion").append("<a href='https://cdn.emilianomaccaferri.com/main/Registro-Fermi.apk' style='color: white;'>" + res.version + "</a>");
+                    $("#restStatus").append("Online");
+
+                }else{
+
+                    $("#restVersion").append("...");
+                    $("#appVersion").append("...");
+                    $("#appUsers").append("...");
+                    $("#restStatus").append("Offline");
+
+                }
+
+        }
+
+    );
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="main">
+        <div class="content">
+            <div class="status">
+                <h1> Stato dei servizi </h1>
+                <ul>
+                    <li id="app"> <b>App</b>: <span id="appUsers">Utenti: </span> - <span id="appVersion">v</span> </li>
+                    <li id="web"> <b>RestAPI</b>: <span id="restStatus"></span> - <span id="restVersion">v</span></li>
+                </ul>
+            </div>
+            <div class="small"> Benvenuto su </div>
+            <div class="big"> Fermi Reloaded </div>
+            <div class="small"> La piattaforma 2.0, moderna e veloce </div>
+        </div>
+    </div>
+
+{% endblock %}

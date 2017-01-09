@@ -26,7 +26,7 @@ var MySQL = function(database, username, password){
 
     }
 
-    setTimeout(function(){
+    setInterval(function(){
 
         self.mysql.query('SHOW DATABASES', function(err, s){});
 
