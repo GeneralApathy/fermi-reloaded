@@ -17,9 +17,30 @@ body{
 ::-webkit-selection { background: #222 }
 ::selection { background: #222 }
 
+.header{
+
+    background: transparent;
+    border-bottom: 2px solid white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    position: fixed;
+    z-index: 3400;
+    width: 100%;
+
+}
+
+.header ul li{
+
+    display: inline-block;
+    width: 100px;
+    font-weight: bolder;
+
+}
+
 .main{
 
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100vh;
     display: table;
@@ -33,7 +54,7 @@ body{
     position: relative;
     vertical-align: middle;
     color: white;
-    padding: 100px;
+    padding: 200px;
 
 }
 
@@ -90,5 +111,173 @@ body{
 
     padding: 10px;
     text-align: center;
+
+}
+
+.section{
+
+    width: 100%;
+    display: table;
+    background: #222;
+    color: white;
+
+}
+
+.section .content{
+
+    display: table-cell;
+    position: relative;
+    vertical-align: middle;
+    color: white;
+    padding: 100px;
+
+}
+
+.section .content h1{
+
+    font-size: 3em;
+
+}
+
+.section .content p{
+
+    font-size: 1.2em;
+
+}
+
+.section .content .download{
+
+    background: #3498db;
+    width: 400px;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    margin: 100px auto 0 auto;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.main .content .total{
+
+    position: absolute;
+    z-index: -1;
+    padding: 30px;
+    color: white;
+    opacity: 0;
+
+}
+
+.main .content .total h1{
+
+    font-size: 3em;
+    font-weight: lighter;
+
+}
+
+.main .content .total h2{
+
+    font-size: 1.5em;
+    font-weight: lighter;
+
+}
+
+@media screen and (max-width: 1105px){
+
+    .section .content img{
+
+        display: none;
+
+    }
+
+    .main .content{
+
+        padding: 90px;
+
+    }
+
+    .main .content .status{
+
+        width: 200px;
+
+    }
+
+}
+
+@media screen and (max-width: 880px){
+
+    .section .content{
+
+        display: block;
+
+    }
+
+}
+
+@media screen and (max-width: 820px){
+
+    .main .content{
+
+        padding: 10px;
+
+    }
+
+    .main .content .status{
+
+        display: block;
+        width: 200px;
+
+    }
+
+    .main .content .big{
+
+        font-size: 3em;
+
+    }
+
+    .main .content .small{
+
+        font-size: 1em;
+
+    }
+
+}
+
+@media screen and (max-width: 680px){
+
+    .section .content{
+
+        padding: 20px;
+
+    }
+
+    .section .content .downaload{
+
+        width: 50%;
+
+    }
+
+}
+
+@media screen and (max-width: 595px){
+
+    .main .content .big, .main .content .small, .main .content .status{
+
+        position: absolute;
+        z-index: -1;
+        display: none;
+
+    }
+
+    .section .content .download{width: 200px;}
+
+    .main .content .total{
+
+        text-align: center;
+        position: relative;
+        z-index: 1000;
+        opacity: 1;
+
+    }
 
 }

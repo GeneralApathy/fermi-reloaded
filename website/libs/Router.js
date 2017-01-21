@@ -30,8 +30,6 @@ var Router = function(){
 
 Router.prototype.init = function(){
 
-    setInterval(function(){console.log("S")},1000);
-
     app.get('/', function(req, res){
 
         res.render('index', {

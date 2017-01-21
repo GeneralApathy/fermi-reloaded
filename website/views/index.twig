@@ -1,21 +1,30 @@
 {% extends "layout.twig" %}
+
 {% block head %}
 {{parent()}}
 
 <script>
 
-$(document).ready(function(){
+    $(window).scroll(function () {
 
-if($(document).width() < 700){
+            if($(window).scrollTop() > 50){
 
-$('body').css('background', 'url()');
-$('body').append("<h1>BALU BELLOOOOOO</h1>");
-$('.main').hide();
-alert("No, non è responsive, porcamadonna");
+                $(".header").animate({backgroundColor: '#222'}, "fast");
+                $(".header").animate({color: '#fff'}, "fast");
 
-}
+            }
 
-});
+        });
+
+    $(function(){
+
+        $(".download").click(function(){
+
+            window.location = $(this).attr('href');
+
+        })
+
+    })
 
     $.get(
 
@@ -23,17 +32,22 @@ alert("No, non è responsive, porcamadonna");
         function(res){
 
                 if(res){
-
+                    console.log(res);
                     $("#restVersion").append(res.rest);
                     $("#appVersion").append("<a href='https://cdn.emilianomaccaferri.com/main/Registro-Fermi.apk' style='color: white;'>" + res.version + "</a>");
                     $("#restStatus").append("Online");
+                    $("#restVersion2").append(res.rest);
+                    $("#appVersion2").append("<a href='https://cdn.emilianomaccaferri.com/main/Registro-Fermi.apk' style='color: white;'>" + res.version + "</a>");
+                    $("#restStatus2").append("Online");
 
                 }else{
 
                     $("#restVersion").append("...");
                     $("#appVersion").append("...");
-                    $("#appUsers").append("...");
                     $("#restStatus").append("Offline");
+                    $("#restVersion2").append("...");
+                    $("#appVersion2").append("...");
+                    $("#restStatus2").append("Offline");
 
                 }
 
@@ -47,18 +61,63 @@ alert("No, non è responsive, porcamadonna");
 
 {% block content %}
 
+    <div class="header">
+        <ul>
+            <li> <a style="color: white" href="#download"> Download </a></li>
+            <li> <a style="color: white" href="#idea"> L'idea </a></li>
+        </ul>
+    </div>
+
     <div class="main">
         <div class="content">
+        <div class="total">
+            <h1>Fermi Reloaded</h1>
+            <h2>La piattaforma 2.0, moderna e veloce</h2>
+            <h2 style="text-decoration: underline;" id="restStatus2">Stato API: </h2>
+            <h2 id="appVersion2"> Versione App: </h2>
+        </div>
             <div class="status">
                 <h1> Stato dei servizi </h1>
                 <ul>
-                    <li id="app"> <b>App</b>: <span id="appUsers">Utenti: </span> - <span id="appVersion">v</span> </li>
+                    <li id="app"> <b>App</b>: <span id="appVersion">v</span> </li>
                     <li id="web"> <b>RestAPI</b>: <span id="restStatus"></span> - <span id="restVersion">v</span></li>
                 </ul>
             </div>
             <div class="small"> Benvenuto su </div>
             <div class="big"> Fermi Reloaded </div>
             <div class="small"> La piattaforma 2.0, moderna e veloce </div>
+        </div>
+    </div>
+    <div class="section" id="download">
+        <div class="content" style="display: flex; display: -webkit-flex; justify-content: center;">
+            <div>
+            <h1> App mobile (Android)</h1>
+            <p>
+                Progettata per rendere più facile e veloce l'interazione con il registro.<br>
+                Gli aggiornamenti vengono eseguiti quando viene rilevata una versione nuova sul server (e con il consenso dell'utente).
+                <ul>
+                    <li>Memorizza i dati una volta inseriti, così non dovrai più preoccuparti di averli a portata di mano in caso te li dimentichi</li>
+                    <li>Interfaccia moderna e semplice da utilizzare</li>
+                    <li>Dati in tempo reale</li>
+                </ul>
+                <div class="download" href="https://cdn.emilianomaccaferri.com/main/Registro-Fermi.apk">
+                    Download
+                </div>
+            </p>
+        </div>
+            <img src="https://cdn.emilianomaccaferri.com/registro/app.png">
+        </div>
+    </div>
+    <div class="section" style="background: #424242;" id="idea">
+        <div class="content" style="display: flex; display: -webkit-flex; justify-content: center;">
+            <div>
+            <h1> L'idea </h1>
+            <p>
+                Questo progetto è nato essenzialmente per migliorare l'interazione degli studenti con il registro elettronico dell'Istituto Enrico Fermi.<br>
+                Tramite una <b>RestAPI</b> che autentica le richieste è possibile ricevere dati, che possono essere utilizzati da qualsiasi applicazione.<br>
+                Per ora è privata, ma l'intenzione è quella di renderla pubblica a chiunque, fornendo delle chiavi di autenticazioni all'API.<br>
+            </p>
+        </div>
         </div>
     </div>
 

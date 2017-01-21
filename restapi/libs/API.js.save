@@ -33,7 +33,8 @@ var API = function(){
 }
 
 API.prototype.init = function(){
-
+	
+    date = new Date();
     app.get('/', function(req, res){
 
         var ip = req.ip;
@@ -44,40 +45,16 @@ API.prototype.init = function(){
     })
 
     app.get('/appVersion', function(req, res){
-
-        res.json({'version': config.appVersion});
-
-    });
-
-    app.post('/registerService', function(req, res){
-
-      var email = req.body.email;
-      var password = req.body.password;
-
-      mysql.registerUser(email, password, function(err, dbErr, registered){
-
-        if(err){
-
-          res.json({'error': err});
-
-        }else if(dbErr){
-
-          res.json({'database_error': dbErr});
-
-        }else if(registered){
-
-          res.json({'success': true});
-
-        }
-
-      })
+  
+        var version = '1.0.0';
+        var mobileVersion = '1.0.0'
+        res.json({'version': mobileVersion, 'rest': version});
 
     });
 
     app.post('/login', function(req, res){
 
-        date = new Date();
-        var password = req.body.password;
+  	      var password = req.body.password;
         var username = req.body.username;
         var key = req.body.key;
 
@@ -126,18 +103,9 @@ API.prototype.init = function(){
 
     app.post('/grades', function(req, res){
 
-        date = new Date();
         var password = req.body.password;
         var username = req.body.username;
         var key = req.body.key;
-        var term = req.body.term;
-
-        if(!term){
-
-            //This for older versions that don't support second term
-            term = 1;
-
-        }
 
         if(!username && !password){
 
@@ -157,7 +125,7 @@ API.prototype.init = function(){
 
                 if(row && row.length == 1){
 
-                    web.getGrades(username, password, term, function(err, grades){
+                    web.getGrades(username, password, function(err, grades){
 
                         if(err){
 
@@ -165,8 +133,6 @@ API.prototype.init = function(){
                             grades = {'error': err};
 
                         }
-                        if(grades.length == 0)
-                          grades = {'error': 'Non ci sono ancora voti in questo quadrimestre'};
 
                         res.json(grades);
 
@@ -187,7 +153,6 @@ API.prototype.init = function(){
 
     app.post('/tests', function(req, res){
 
-        date = new Date();
         var password = req.body.password;
         var username = req.body.username;
         var key = req.body.key;

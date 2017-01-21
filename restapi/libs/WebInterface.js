@@ -39,7 +39,7 @@ module.exports.login = function(username, password, callback){
 
 }
 
-module.exports.getGrades = function(username, password, callback){
+module.exports.getGrades = function(username, password, term, callback){
 
     var grades = [];
     var error = '';
@@ -56,47 +56,96 @@ module.exports.getGrades = function(username, password, callback){
 
             }else{
                 //If all goes well we can proceed with the grades collection
-                request('http://www.fermi.mo.it/~loar/AssenzeVotiStudenti/VotiStudente1Q.php', function(err, resp, gradesBody){
 
-                    var parsedHTML = $.load(gradesBody);
+                if(term == 1){
 
-                    console.log("Request sent");
+                    request('http://www.fermi.mo.it/~loar/AssenzeVotiStudenti/VotiStudente1Q.php', function(err, resp, gradesBody){
 
-                    /*
-                        CSS is really bad made, so I have to filter every single
-                        table
-                    */
-                    parsedHTML('.TabellaVoti .td_votoInsuff').map(function(i, grade){
+                        var parsedHTML = $.load(gradesBody);
 
-                        grade = $(grade);
-                        var subject = grade.prev().text();
-                        var date = grade.next().text();
-                        var type = grade.next().next().text();
-                        grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
+                        console.log("Response sent");
+
+                        /*
+                            CSS is really bad made, so I have to filter every single
+                            table
+                        */
+                        parsedHTML('.TabellaVoti .td_votoInsuff').map(function(i, grade){
+
+                            grade = $(grade);
+                            var subject = grade.prev().text();
+                            var date = grade.next().text();
+                            var type = grade.next().next().text();
+                            grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
+
+                        });
+
+                        parsedHTML('.TabellaVoti .td_votoGrave').map(function(i, grade){
+
+                            grade = $(grade);
+                            var subject = grade.prev().text();
+                            var date = grade.next().text();
+                            var type = grade.next().next().text();
+                            grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
+
+                        });
+
+                        parsedHTML('.TabellaVoti .td_votoSuff').map(function(i, grade){
+
+                            grade = $(grade);
+                            var subject = grade.prev().text();
+                            var date = grade.next().text();
+                            var type = grade.next().next().text();
+                            grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
+
+                        });
 
                     });
 
-                    parsedHTML('.TabellaVoti .td_votoGrave').map(function(i, grade){
+                }else if(term == 2){
 
-                        grade = $(grade);
-                        var subject = grade.prev().text();
-                        var date = grade.next().text();
-                        var type = grade.next().next().text();
-                        grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
+                    request('http://www.fermi.mo.it/~loar/AssenzeVotiStudenti/VotiStudente2Q.php', function(err, resp, gradesBody){
+
+                        var parsedHTML = $.load(gradesBody);
+
+                        console.log("Response sent");
+
+                        /*
+                            CSS is really bad made, so I have to filter every single
+                            table
+                        */
+                        parsedHTML('.TabellaVoti .td_votoInsuff').map(function(i, grade){
+
+                            grade = $(grade);
+                            var subject = grade.prev().text();
+                            var date = grade.next().text();
+                            var type = grade.next().next().text();
+                            grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
+
+                        });
+
+                        parsedHTML('.TabellaVoti .td_votoGrave').map(function(i, grade){
+
+                            grade = $(grade);
+                            var subject = grade.prev().text();
+                            var date = grade.next().text();
+                            var type = grade.next().next().text();
+                            grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
+
+                        });
+
+                        parsedHTML('.TabellaVoti .td_votoSuff').map(function(i, grade){
+
+                            grade = $(grade);
+                            var subject = grade.prev().text();
+                            var date = grade.next().text();
+                            var type = grade.next().next().text();
+                            grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
+
+                        });
 
                     });
 
-                    parsedHTML('.TabellaVoti .td_votoSuff').map(function(i, grade){
-
-                        grade = $(grade);
-                        var subject = grade.prev().text();
-                        var date = grade.next().text();
-                        var type = grade.next().next().text();
-                        grades.push({'grade': grade.text(), 'subject': subject, 'date': date, 'type': type});
-
-                    });
-
-                });
+                }
 
             }
 
