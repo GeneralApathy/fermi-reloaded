@@ -12,7 +12,41 @@
         },
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        },
+        "com.lampa.startapp": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        },
+        "ch.ti8m.documenthandler": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        },
+        "cordova-plugin-fastrde-downloader": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        },
+        "cordova-plugin-clipboard": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        },
+        "cordova-plugin-zip": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        },
+        "cordova-plugin-fastrde-md5": {
+            "PACKAGE_NAME": "com.emilianomaccaferri.registro"
+        }
+    }
 }

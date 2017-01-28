@@ -15,27 +15,106 @@
         <meta name="msapplication-tap-highlight" content="no">-->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="js/credentials.js"></script>
+        <script src="js/Updater.js"></script>
         <title>Registro Fermi &bull; Login</title>
         <script>
+
+            app.initialize();
+
+        $(document).ready(function(){
+
+            console.log(localStorage.getItem('accepted'));
+            localStorage.setItem('version', '1.0.1');
 
             if(localStorage.username && localStorage.password){
 
                 window.location = './grades.html';
 
+            }else{
+
+                localStorage.setItem('version', '1.0.0');
+
             }
 
+            if(!localStorage.getItem('accepted')){
+
+                 $("#terms").css({"opacity": 1});
+                 $("#terms").css({"z-index": 300});
+
+            }
+
+            $("#accept").click(function(){
+
+                $("#terms").css({"z-index": "-1"});
+                $("#terms").css({"opacity": 0});
+                localStorage.setItem('accepted', true);
+
+            })
+
+        });
         </script>
     </head>
     <body class="no-overflow">
         <div class="header">
            <h1> Registro Fermi </h1>
         </div>
+            <div class="terms" id="terms">
+                <div class="inner">
+                <h1> Termini e condizioni di utilizzo </h1>
+                <p>
+                    Ai sensi dell'art. 13 del D.Lgs 196/2003 in materia di protezione dei dati personali si informa che i dati non verranno raccolti né analizzati.<br>
+                    I dati in questione verranno utilizzati solamente per l'autorizzazione delle richieste dell'utente tramite l'applicazione, che si interfaccia con una piattaforma web remota.
+                    <br>Il trattamento dei dati all'interno dell'applicazione avverrà nel pieno rispetto dei principi di riservatezza, correttezza, liceità e trasparenza, mediante l'ausilio di mezzi elettronici e/o automatizzati e avrà le seguenti finalità di dare seguito alla richiesta effettuata dalla pagina del sito.
+                    <h1> Utilizzo dei dati personali </h1>
+                    I dati inseriti durante l'utilizzo dell'applicazione <b>non</b> verranno memorizzati su nessuna macchina e/o mezzo elettronico, verranno utilizzati solamente per l'autorizzazione delle richieste dell'utente tramite l'applicazione, che si interfaccia con una piattaforma web remota.<br>
+                    <h1>Conferimento dati</h1>
+                    Il conferimento dei dati è obbligatorio per poter utilizzare l'applicazione, il mancato consenso a fornire i propri dati non fornirà l'accesso alle funzionalità specifiche dell'applicazione stessa qui sotto descritte:
+                    <ul>
+                        <li>Visualizzazione dei voti</li>
+                        <li>Visualizzazione delle prove orali/scritte in programma</li>
+                    </ul>
+                    <h1>Diffusione dei dati</h1>
+                    I propri dati non verranno diffusi né saranno comunicati.
+                    <h1>Diritti dell'utente (Art. 7 del Codice)</h1>
+                    1. L'interessato ha diritto di ottenere la conferma dell'esistenza o meno di dati personali che lo riguardano, anche se non ancora registrati, e la loro comunicazione in forma intelligibile.
+                    <br>
+                    2. L'interessato ha diritto di ottenere l'indicazione:
+                    <br>
+                    a) dell'origine dei dati personali;
+                    <br>
+                    b) delle finalità e modalità del trattamento;
+                    <br>
+                    c) della logica applicata in caso di trattamento effettuato con l'ausilio di strumenti elettronici;
+                    <br>
+                    d) degli estremi identificativi del titolare, dei responsabili e del rappresentante designato ai sensi dell'articolo 5, comma 2;
+                    <br>
+                    e) dei soggetti o delle categorie di soggetti ai quali i dati personali possono essere comunicati o che possono venirne a conoscenza in qualità di rappresentante designato nel territorio dello Stato, di responsabili o incaricati.
+                    <br>
+                    3. L'interessato ha diritto di ottenere:
+                    <br>
+                    a) l'aggiornamento, la rettificazione ovvero, quando vi ha interesse, l'integrazione dei dati;
+                    <br>
+                    b) la cancellazione, la trasformazione in forma anonima o il blocco dei dati trattati in violazione di legge, compresi quelli di cui non è necessaria la conservazione in relazione agli scopi per i quali i dati sono stati raccolti o successivamente trattati;
+                    <br>
+                    c) l'attestazione che le operazioni di cui alle lettere a) e b) sono state portate a conoscenza, anche per quanto riguarda il loro contenuto, di coloro ai quali i dati sono stati comunicati o diffusi, eccettuato il caso in cui tale adempimento si rivela impossibile o comporta un impiego di mezzi manifestamente sproporzionato rispetto al diritto tutelato.
+                    <br>
+                    4. L'interessato ha diritto di opporsi, in tutto o in parte:
+                    <br>
+                    a) per motivi legittimi al trattamento dei dati personali che lo riguardano, ancorché pertinenti allo scopo della raccolta;
+                    <br>
+                    b) al trattamento di dati personali che lo riguardano a fini di invio di materiale pubblicitario o di vendita diretta o per il compimento di ricerche di mercato o di comunicazione commerciale.
+                </p>
+                </div>
+                <div class="buttons" id="accept">
+                    Accetta
+                </div>
+            </div>
             <div class="login">
                 <div class="content">
-                    <h1> Login </h1>
                     <input id="username" type="text" placeholder="Username">
                     <input id="password" type="password" placeholder="Password" style="margin-bottom: 30px;">
                     <button value="login" onclick="setCredentials();">Login</button>

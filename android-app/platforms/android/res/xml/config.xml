@@ -7,12 +7,38 @@
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
+    <feature name="startApp">
+        <param name="android-package" value="com.lampa.startapp.startApp" />
+    </feature>
+    <feature name="DocumentHandler">
+        <param name="android-package" value="ch.ti8m.phonegap.plugins.DocumentHandler" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="md5chksum">
+        <param name="android-package" value="de.fastr.phonegap.plugins.md5chksum" />
+    </feature>
+    <feature name="Zip">
+        <param name="android-package" value="org.apache.cordova.Zip" />
+    </feature>
     <name>Registro Fermi</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Application that ports the ITIS Enrico Fermi's online platform.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="inbox@emilianomaccaferri.com" href="http://registro.emilianomaccaferri.com">
+        Emiliano Maccaferri
     </author>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
@@ -23,7 +49,7 @@
     <allow-intent href="geo:*" />
     <access origin="*" />
     <allow-navigation href="*" />
-    <allow-navigation href="https://api.emilianomaccaferri.com/*" />
+    <icon src="res/icon.png" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
 </widget>

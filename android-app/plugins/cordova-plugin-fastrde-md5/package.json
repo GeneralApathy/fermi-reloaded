@@ -1,0 +1,28 @@
+{
+  "name": "cordova-plugin-fastrde-md5",
+  "version": "0.2.0",
+  "description": "MD5 Checksum for Files on Android and iOS",
+  "cordova": {
+    "id": "cordova-plugin-fastrde-md5",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fastrde/cordova-plugin-fastrde-md5"
+  },
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+		"file",
+		"md5",
+		"checksum",
+		"hash"
+  ],
+  "author": "Fabian Strachanski",
+  "license": "MIT"
+}

@@ -24,7 +24,7 @@ function setCredentials(){
 
         localStorage.setItem("key", key);
 
-        var username = $("#username").val();
+        var username = $("#username").val().trim();
         var password = $("#password").val();
 
         if(!username || !password){
@@ -54,6 +54,7 @@ function setCredentials(){
 
                    localStorage.setItem('username', username);
                    localStorage.setItem('password', password);
+                   localStorage.setItem('accepted', true);
                    window.location = './grades.html';
                    $("#loading").empty();
                    count = 0;

@@ -2,10 +2,10 @@
 <widget id="com.emilianomaccaferri.registro" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Registro Fermi</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Application that ports the ITIS Enrico Fermi's online platform.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="inbox@emilianomaccaferri.com" href="http://registro.emilianomaccaferri.com">
+        Emiliano Maccaferri
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
@@ -17,6 +17,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <platform name="android">
+        <icon src="res/icon.png" />
         <allow-intent href="market:*" />
     </platform>
     <platform name="ios">
@@ -24,7 +25,8 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <engine name="android" spec="~6.0.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
+    <plugin name="cordova-plugin-fastrde-downloader" spec="~0.2.1" />
     <access origin="*" />
     <allow-navigation href="*"/>
-    <allow-navigation href="https://api.emilianomaccaferri.com/*" />
 </widget>

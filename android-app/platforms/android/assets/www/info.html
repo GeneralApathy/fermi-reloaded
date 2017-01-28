@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://use.fontawesome.com/5ca90f7bd7.js"></script>
+        <script src="js/menu.js"></script>
+        <title>Registro Fermi &bull; Informazioni</title>
+
+        <script>
+
+            document.click(function(e){
+
+                e = e || window.event;
+                var element = e.target || e.srcElement;
+                if(element.tagName == "A"){
+
+                    window.open(element.href, "_system", "location=yes");
+                    return false;
+
+                }
+
+            })
+
+
+        </script>
+
+        <script>
+
+
+            if(!localStorage.username && !localStorage.password){
+
+                window.location = './index.html';
+
+            }
+
+            $(document).ready(function(){
+
+                $("a[target='_blank']").click(function(e){
+                    e.preventDefault();
+                    window.open($(e.currentTarget).attr('href'), '_system', '');
+                });
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="secondHeader">
+            <p id="selection"><i style="margin-right: 20px;" class="fa fa-bars" aria-hidden="true"></i>Info</p>
+       </div>
+       <div class="opac"></div>
+       <div class="leftmenu" id="left">
+           <ul id="normal">
+               <li id="terms"> <p> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Voti </p>
+                   <ul>
+                       <div class='inner'>
+                           <li id="first"> 1° Quadrimestre </li>
+                           <li id="second"> 2° Quadrimestre </li>
+                       </div>
+                   </ul>
+               </li>
+               <a href="./tests.html"><li> <p> <i class="fa fa-pencil" aria-hidden="true"></i> Verifiche </p> </li></a>
+               <a href="./info.html"><li> <p> <i class="fa fa-info-circle" aria-hidden="true"></i>Informazioni </p> </li></a>
+               <li id="logout"> <p> <i class="fa fa-power-off" aria-hidden="true"></i> Logout </p> </li>
+           </ul>
+       </div>
+       <div id="loading"></div>
+        <div class="grades" id="grades">
+            <div class="top">
+                <p>Informazioni riguardanti l'applicazione</p>
+            </div>
+        </div>
+        <div class="infobox">
+            <h1>Licenza</h1>
+            <p>
+                Questa applicazione è rilasciata sotto licenza GNU GENERAL PUBLIC LICENSE Version 3 (GNU GPLv3)
+            </p>
+            <h1> Trattamento dati </h1>
+            <p>
+                Ai sensi dell'art. 13 del D.Lgs 196/2003 in materia di protezione dei dati personali si informa che i dati non verranno raccolti né analizzati.<br>
+                I dati in questione verranno utilizzati solamente per l'autorizzazione delle richieste dell'utente tramite l'applicazione, che si interfaccia con una piattaforma web remota.
+                <br>Il trattamento dei dati all'interno dell'applicazione avverrà nel pieno rispetto dei principi di riservatezza, correttezza, liceità e trasparenza, mediante l'ausilio di mezzi elettronici e/o automatizzati e avrà le seguenti finalità di dare seguito alla richiesta effettuata dalla pagina del sito.
+            </p>
+            <p>
+                App sviluppata da <b>Emiliano Maccaferri</b>
+            </p>
+        </div>
+    </body>
+</html>
